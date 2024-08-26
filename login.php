@@ -76,7 +76,14 @@ if not already created and saves all the data to that file -->
 
                 // Create a user data string
                 $user_data = "First Name: $first_name\nLast Name: $last_name\nUsername: $username\nPassword: $password\nEmail: $email\n\n";
-
+                
+                // Check if the file exists
+                $file = 'usr.txt';
+                if (!file_exists($file)) {
+                    // Create the file if it doesn't exist
+                    file_put_contents($file, '');
+                }
+                 
                 // Append the user data to the usr.txt file
                 file_put_contents('usr.txt', $user_data, FILE_APPEND);
 
@@ -102,4 +109,5 @@ if not already created and saves all the data to that file -->
             
             <input type="submit" value="Submit">
         </form>
+
 
